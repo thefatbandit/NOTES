@@ -1,0 +1,2 @@
+LOCATION INSTALLED
+	Home/catkin_ws

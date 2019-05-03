@@ -1,0 +1,7 @@
+Error: Bad performance with default settings.
+		OR Slow performance on PC.
+Solution:   1. Decrease no_inner_iterations
+			2. Decrease no_outer_iterations
+			3. Increase dt_ref (time intervals in which the poses are checked)
+			4. Decrease obstacle_poses_affected
+
