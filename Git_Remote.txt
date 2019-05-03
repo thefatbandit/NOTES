@@ -1,0 +1,50 @@
+HELP FOR COMMANDS
+git <command> --help
+
+
+
+ADDING REPO
+git remote add upstream <URL_from_which_fork_is_done>
+git remote add origin <Your_fork_URL>
+NOTE: origin and upstream are just naming conventions. 
+
+GETTING REMOTE INFORMATION
+git -v (i.e. verbose <tell me everything you know>) 
+OUTPUT:
+	origin	https://github.com/Motu-Lootera1701/sandbox.git (fetch)
+	origin	https://github.com/Motu-Lootera1701/sandbox.git (push)
+	upstream	https://github.com/apugoneappu/sandbox (fetch)
+	upstream	https://github.com/apugoneappu/sandbox (push)
+NOTE:    (fetch) here shows the repository the codes are downloaded from
+	 (push) here shows the repository the codes are uploaded to
+
+REMOVE REMOTE
+git rm <remote_name> (e.g. origin)
+
+CHANGE REMOTE URL
+git remote <old_url> <remote_name> <new_url>]
+
+TO DOWNLOAD FROM YOUR FORK
+git pull <remote_name> <branch_name> (by default put master)
+
+GETTING CURRENT STATUS
+git status
+
+PUTTING THINGS IN STAGING AREA
+git add <file_name>
+NOTE: For adding the entire current directory {git add .}
+	. here represents all the contents of the current directory 
+
+SHORTCUT: 
+
+FETCH & PULL
+git fetch <remote_name> <branch_name>
+	This just downloads the changes in the repo fetched from
+git pull <remote_name> <branch_name> 
+	This downloads as well as tries to merge the changes
+
+MERGE CONFLICT
+Arises when 
+
+MERGING BRANCHES
+
