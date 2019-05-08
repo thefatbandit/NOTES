@@ -44,7 +44,8 @@ git pull <remote_name> <branch_name>
 	This downloads as well as tries to merge the changes
 
 MERGE CONFLICT
-Arises when 
+Arises when there is descrepency in the files previously present and the files pulled.
 
 MERGING BRANCHES
-
+To merge into any other branch	
+	git merge <source_branch> <>

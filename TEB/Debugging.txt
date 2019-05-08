@@ -5,3 +5,10 @@ Solution:   1. Decrease no_inner_iterations
 			3. Increase dt_ref (time intervals in which the poses are checked)
 			4. Decrease obstacle_poses_affected
 
+Error: [FATAL] [1557180142.066457855, 2.200000000]: Failed to create the global_planner/GlobalPlanner planner, are you sure it is properly registered and that the containing library is built? Exception: According to the loaded plugin descriptions the class global_planner/GlobalPlanner with base class type nav_core::BaseGlobalPlanner does not exist. Declared types are  navfn/NavfnROS
+[move_base-2] process has died [pid 6031, exit code 1, cmd /opt/ros/kinetic/lib/move_base/move_base __name:=move_base __log:=/home/arnesh/.ros/log/8e3d5200-704a-11e9-8bbf-5c5f67070e54/move_base-2.log].
+log file: /home/arnesh/.ros/log/8e3d5200-704a-11e9-8bbf-5c5f67070e54/move_base-2*.log
+
+Error: [ERROR] [1557182041.413504669, 8.000000000]: Invalid argument "/map" passed to lookupTransform argument target_frame in tf2 frame_ids cannot start with a '/' like: 
+
+
