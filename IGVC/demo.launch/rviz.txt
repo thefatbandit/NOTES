@@ -1,0 +1,95 @@
+Node [/rviz]
+Publications: 
+ * /clicked_point [geometry_msgs/PointStamped]
+ * /initialpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /move_base_simple/goal [geometry_msgs/PoseStamped]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /astroid_path [unknown type]
+ * /base_pose_ground_truth [nav_msgs/Odometry]
+ * /clock [rosgraph_msgs/Clock]
+ * /frenet_path [unknown type]
+ * /global_path [unknown type]
+ * /move_base/TebLocalPlannerROS/global_plan [unknown type]
+ * /move_base/TebLocalPlannerROS/local_plan [unknown type]
+ * /move_base/TebLocalPlannerROS/teb_poses [unknown type]
+ * /move_base/local_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/local_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base_simple/goal [geometry_msgs/PoseStamped]
+ * /prius/center_laser/scan [sensor_msgs/PointCloud]
+ * /prius/main_laser/scan [sensor_msgs/LaserScan]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /rviz/get_loggers
+ * /rviz/reload_shaders
+ * /rviz/set_logger_level
+
+
+contacting node http://arnesh-HP-Pavilion-Laptop-15-cc1xx:43607/ ...
+Pid: 32611
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /initialpose
+    * to: /fake_localization
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /move_base_simple/goal
+    * to: /move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41221/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /fake_localization (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:33729/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41221/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /very_inaccurate_odom (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:39691/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:43607/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+ * topic: /base_pose_ground_truth
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /prius/main_laser/scan
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /move_base/local_costmap/costmap
+    * to: /move_base (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41077/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /move_base/local_costmap/costmap_updates
+    * to: /move_base (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41077/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /prius/center_laser/scan
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+
+

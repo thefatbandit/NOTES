@@ -1,0 +1,117 @@
+Node [/move_base]
+Publications: 
+ * /cmd_vel [geometry_msgs/Twist]
+ * /move_base/NavfnROS/plan [nav_msgs/Path]
+ * /move_base/TrajectoryPlannerROS/cost_cloud [sensor_msgs/PointCloud2]
+ * /move_base/TrajectoryPlannerROS/global_plan [nav_msgs/Path]
+ * /move_base/TrajectoryPlannerROS/local_plan [nav_msgs/Path]
+ * /move_base/TrajectoryPlannerROS/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/TrajectoryPlannerROS/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/current_goal [geometry_msgs/PoseStamped]
+ * /move_base/feedback [move_base_msgs/MoveBaseActionFeedback]
+ * /move_base/global_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/global_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base/global_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/global_costmap/inflation_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/inflation_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/obstacle_layer/clearing_endpoints [sensor_msgs/PointCloud]
+ * /move_base/global_costmap/obstacle_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/obstacle_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/global_costmap/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/global_costmap/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /move_base/local_costmap/costmap [nav_msgs/OccupancyGrid]
+ * /move_base/local_costmap/costmap_updates [map_msgs/OccupancyGridUpdate]
+ * /move_base/local_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/local_costmap/inflation_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/inflation_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/local_costmap/obstacle_layer/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/obstacle_layer/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/local_costmap/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/local_costmap/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /move_base/parameter_updates [dynamic_reconfigure/Config]
+ * /move_base/result [move_base_msgs/MoveBaseActionResult]
+ * /move_base/status [actionlib_msgs/GoalStatusArray]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /clock [rosgraph_msgs/Clock]
+ * /move_base/cancel [unknown type]
+ * /move_base/global_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /move_base/local_costmap/footprint [geometry_msgs/PolygonStamped]
+ * /move_base_simple/goal [geometry_msgs/PoseStamped]
+ * /odom [unknown type]
+ * /prius/main_laser/scan [sensor_msgs/LaserScan]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /move_base/NavfnROS/make_plan
+ * /move_base/TrajectoryPlannerROS/set_parameters
+ * /move_base/clear_costmaps
+ * /move_base/get_loggers
+ * /move_base/global_costmap/inflation_layer/set_parameters
+ * /move_base/global_costmap/obstacle_layer/set_parameters
+ * /move_base/global_costmap/set_parameters
+ * /move_base/local_costmap/inflation_layer/set_parameters
+ * /move_base/local_costmap/obstacle_layer/set_parameters
+ * /move_base/local_costmap/set_parameters
+ * /move_base/make_plan
+ * /move_base/set_logger_level
+ * /move_base/set_parameters
+
+
+contacting node http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41077/ ...
+Pid: 32551
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /move_base/goal
+    * to: /move_base
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /move_base/local_costmap/costmap
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /move_base/local_costmap/costmap_updates
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /robot_state_publisher (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41221/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /fake_localization (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:33729/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41221/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /very_inaccurate_odom (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:39691/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /move_base_simple/goal
+    * to: /rviz (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:43607/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /prius/main_laser/scan
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /move_base/goal
+    * to: /move_base (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41077/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+

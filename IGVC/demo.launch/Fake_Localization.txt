@@ -1,0 +1,68 @@
+Node [/fake_localization]
+Publications: 
+ * /amcl_pose [geometry_msgs/PoseWithCovarianceStamped]
+ * /particlecloud [geometry_msgs/PoseArray]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf2_msgs/TFMessage]
+
+Subscriptions: 
+ * /base_pose_ground_truth [nav_msgs/Odometry]
+ * /clock [rosgraph_msgs/Clock]
+ * /initialpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /tf [tf2_msgs/TFMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /fake_localization/get_loggers
+ * /fake_localization/set_logger_level
+
+
+contacting node http://arnesh-HP-Pavilion-Laptop-15-cc1xx:33729/ ...
+Pid: 32553
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /fake_localization
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /fake_localization (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:33729/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /robot_state_publisher (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41221/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /robot_state_publisher (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:41221/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /very_inaccurate_odom (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:39691/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /base_pose_ground_truth
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /initialpose
+    * to: /rviz (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:43607/)
+    * direction: inbound
+    * transport: TCPROS
+
+
