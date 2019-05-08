@@ -1,3 +1,12 @@
 ERROR: [ WARN] [1557309884.839536094, 1359.943000000]: The origin for the sensor at (-69.02, -103.34, 		0.65) is out of map bounds. So, the costmap cannot raytrace for it.
 	[ WARN] [1557309885.169846694, 1360.068000000]: The robot's start position is off the global 		costmap. Planning will always fail, are you sure the robot has been properly localized?
 
+Error: Node::Advertise(): Error advertising a topic. Did you forget to start the discovery service?
+
+[Wrn] [Publisher.cc:141] Queue limit reached for topic /gazebo/default/pose/local/info, deleting message. This warning is printed only once.
+
+[ WARN] [1557333867.319138952, 1385.568000000]: The robot's start position is off the global costmap. Planning will always fail, are you sure the robot has been properly localized?
+
+[Err] [JointControlWidget.cc:400] Error advertising topic [/prius/joint_cmd]clear
+
+
