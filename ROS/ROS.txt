@@ -90,6 +90,8 @@ BUILDING CATKIN PACKAGES
 NOTE: catkin_ws has 2 other folders than src
 	1. build: This is where cmake and make are called to configure and build the packages.
 	2. devel: This is where the executables & libraries go before you install your packages.
+BUILDING WHILE EXCLUDING A PACKAGE
+	Command: catkin_make -DCATKIN_BLACKLIST_PACKAGES="<package_name>"
 
 //====================================================================
 ROS NODES

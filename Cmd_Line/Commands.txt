@@ -5,3 +5,8 @@ TO KILL A process
 TO OPEN A FILE LOCATION IN FILE EXPLORER
 	Command: nautilus <path>
 	Example: nautilus nautilus /opt/ros/kinetic/share/ {Location of installed ros packages}
+
+CREATING COMMAND LINE ALIASES
+	Command: subl ~/.bashrc	
+Add the following lines to .bashrc.
+	alias <short_name>='<The_long_command>'
