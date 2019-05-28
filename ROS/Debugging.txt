@@ -8,6 +8,11 @@ NOTE: '-y' stands for yes, so will answer yes to any questions that the rosdep i
       '-r'  
 Given code installs all the dependencies required by the packages in src.
 
+UNMET DEPENDENCIES WHILE USING ROSDEP
+	Not yet solved.
+	Command: sudo apt-get install -f 
+		works sometime.
+
 Roscore Error
 	DESCRIPTION: roscore cannot run as another roscore/master is already running. 
 	Please kill other roscore/master processes before relaunching.
@@ -21,4 +26,5 @@ Check if a new roscore is running now.
 
 TO EXCLUDE A GIVEN PACKAGE FROM CATKIN_MAKE
 	catkin_make -DCATKIN_BLACKLIST_PACKAGES="<package_name>"
+
 
