@@ -43,6 +43,10 @@ git fetch <remote_name> <branch_name>
 git pull <remote_name> <branch_name> 
 	This downloads as well as tries to merge the changes
 
+FINDING DIFFERENCE BETWEEN COMMITS
+git commit
+	Link: https://git-scm.com/docs/git-diff
+
 MERGE CONFLICT
 Arises when there is descrepency in the files previously present and the files pulled.
 
@@ -53,3 +57,5 @@ To merge into any other branch
 PUSHING CAHNGES
 To push changes
 	git push <remote> <branch>
+
+
