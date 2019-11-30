@@ -1,0 +1,6 @@
+TO ENABLE PARALLEL PLANNING 
+	Command: rosparam /<node_name>/enable homotopy_class_planning True
+
+TO ADD TEB AS LOCAL PLANNER TO move_base.launch
+	Command: <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+		Add this line to move_base.launch

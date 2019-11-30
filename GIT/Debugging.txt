@@ -1,0 +1,9 @@
+1. Error Message: \fatal: CRLF would be replaced by LF in car_demo/car_demo/models/		
+	cloverleaf_interchange/meshes/cloverleaf.mtl.
+		
+	Reason: It might occur when you are using git in both windows/linux (https://bit.ly/2KJxeBd).
+	
+	Solution: $ git config --global core.safecrlf input
+		  $ git config --global core.safecrlf input
+		This sets it to not converting in input. If it's still not working, set it to 'false' instead on 'input'.   	
+			 

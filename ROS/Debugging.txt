@@ -1,0 +1,33 @@
+ROS PACKAGE INSTALLATION LOCATION: /opt/ros/kinetic/share/
+Cmake Error 
+	DESCRIPTION: CMake Error at /usr/share/cmake-3.5/Modules/FindPkgConfig.cmake:367 (message):
+  	A required package was not found
+
+  	SOLUTION: $ rosdep install --from-paths src --ignore-src -r -y
+NOTE: '-y' stands for yes, so will answer yes to any questions that the rosdep install will generate.
+      '-r'  
+Given code installs all the dependencies required by the packages in src.
+
+UNMET DEPENDENCIES WHILE USING ROSDEP
+	Not yet solved.
+	Command: sudo apt-get install -f 
+		works sometime.
+
+Roscore Error
+	DESCRIPTION: roscore cannot run as another roscore/master is already running. 
+	Please kill other roscore/master processes before relaunching.
+
+	Prospective Reasons: 1. If you roslaunch without running a roscore from before, then run another roscore after killing it.
+
+	SOLUTION:  
+			$ killall -9 roscore
+Check if a new roscore is running now.
+(OPTIONAL)	$ killall -9 rosmaster 
+
+	DESCRIPTION: run_id on parameter server does not match declared run_id: cb4152e0-e323-11e9-aa64-b4b686d19426.
+
+
+TO EXCLUDE A GIVEN PACKAGE FROM CATKIN_MAKE
+	catkin_make -DCATKIN_BLACKLIST_PACKAGES="<package_name>"
+
+

@@ -1,0 +1,12 @@
+TO KILL A process
+	Command: killall -9 <process_name>
+	Example: killall -9	roscore
+
+TO OPEN A FILE LOCATION IN FILE EXPLORER
+	Command: nautilus <path>
+	Example: nautilus nautilus /opt/ros/kinetic/share/ {Location of installed ros packages}
+
+CREATING COMMAND LINE ALIASES
+	Command: subl ~/.bashrc	
+Add the following lines to .bashrc.
+	alias <short_name>='<The_long_command>'

@@ -1,0 +1,108 @@
+Topics
+
+//--------------------------------------------------------------------
+Published Topics
+	global_plan,local_plan,teb_poses
+
+	teb_markers: Used to get additional info of planning scene.
+		PointObstacles/PolyObstacles: Visualizing obstacles.
+		TebContainer: Visualize all found and optimized trajectories.
+
+	teb_feedback: contains the planned trajectory including the velocity profile(i.e. linear/angular velocity at a time/location),obstacle list...
+		NOTE: publish_feedback must be enabled for this.
+
+//--------------------------------------------------------------------
+Subscirbed Topics
+	odom: Odometry information(i.e. speed of bot)
+	
+	obstacles: provide custom obstacles as pt.,line,polygons... (additionally/instead of costmap obstacles)
+
+	via_points: Provide custom via_pts. 
+	NOTE: global_plan_viapoint_sep is to be set to 0/-ve.
+
+//====================================================================Parameters
+
+//--------------------------------------------------------------------
+Configuration
+	wheelbase(double,default: 1.0): Dist. b/w the rear & front axle.
+NOTE: May be -ve if the motors at the front(like a real car) 
+	  Only required if cmd_angle_instead_rotvel is set true
+
+	cmd_angle_instead_rotvel(bool,default: false): If steering angle([-pi/2,pi/2]) is to be given instead of rotatinal velocity.
+
+//--------------------------------------------------------------------
+footprint_model
+	footprint_model/type: "point","circular","line","two_circles" & "polygon".
+
+	For line: line_start,line_end.
+	For two_circles: front/rear_offset/radius.
+	For polygon: vertices(double[]).
+
+//--------------------------------------------------------------------
+Goal Tolerance
+	xy_goal_tolerance: Allowed final euclidian diatance to the goal position in metres.
+
+	yaw_goal_tolerance: Allowed final orientation.
+
+	free_goal_tolerance(bool,default: false): Allows the bot to arrive at the goal with max. speed.
+
+//--------------------------------------------------------------------
+Trajectory Configuration
+	dt_ref(double,default: 0.3): Basically the time intervals in which the poses are checked.
+NOTE: Keep it in accordance with the control rate.
+
+	dt_hysteresis :
+
+	min_samples(should be>2): 
+
+	global_plan_overwrite_orientation (bool,default: true): Allows TEB to deviate from the local subgoals(i.e. orientations) provided by the global planner.
+
+	global_plan_viapoint_sep (double,default: -0.1(disabled)): min. separation b/w 2 consec. via-points along the global plan.
+NOTE: -ve implies disabled.
+
+	max_global_plan_lookahead_dist (double,default: 3.0): Set to 0/-ve to deactivate.
+
+	force_reinit_new_goal_dist(double,default: 1.0): Reinitialze trajectory if a previos goal is updated in with a separation > specified value in metres.
+
+	feasibility_check_no_poses (int,default: 4): Upto which pose, the feasiability of the predicted plan is to be checked in each sampling interval.
+
+//--------------------------------------------------------------------
+Obstacle Parameters
+	include_costmap_obstacles(bool,default: true): To allow obstacles of local costmap to be taken into account.
+
+	obstacle_poses_affected(int,default: 30):	
+
+	inflation_dist(double,default: 0.6): Buffer zone around obstacles with non-zero penalty costs.
+
+	legacy_obstacle_association(bool,default: false): On setting it to true, you can switch to the new strategy(taking poses & finding "relevant" obstacles).
+
+//--------------------------------------------------------------------
+Optimization Prameters
+	no_outer_iterations(int,default: 4): Each outerloop iteration automatically resizes the trajectory according to the desired temporal resolution & invokes the internal optimizer.
+
+	no_inner_iterations(int,default: 5): Number of actual solver iterations called in each outerloop iteration.
+NOTE: Total no. of solver iterations in each planning cycle is therefore the product of both values.
+
+	penalty_epsilon(double,default: 0.1): Add a small safety margin to penalty functions for hard-constraint approximations.
+
+	weight_<movement_parameter>: ~max_vel_x
+								 ~max_vel_theta
+								 ~acc_lim_x
+								 ~acc_lim_theta
+	
+	weight_kinematics_forward_drive: For forcing the bit to choose only forward directions.
+NOTE: The default weight still allows backwards driving.
+	
+	weight_optimaltime(double,default: 1.0): To contract the trajectory w.r.t. execution time.
+
+	weight_adapt_factor(double, default: 2.0): This scales some special weights (currently weight_obstacle) after each outer iteration. i.e. (weight_new= weight_old*factor).
+Advantage: Increasing weights iteratively instead of setting a huge value priorly leads to better numerical conditions.
+
+//--------------------------------------------------------------------
+Parallel Planning in distinctive Topologies
+	enable_homotopy_class_planning(bool,default: true): Activate prallel planning in distinctive topologies.
+
+	enable_multithreading(bool,default: true): Activate multiple threading in order to plan each trajectory in a different thread.
+Thread: A single trajectory computation.
+
+	

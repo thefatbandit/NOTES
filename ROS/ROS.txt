@@ -1,0 +1,236 @@
+ROS PACKAGE INSTALLATION LOCATION: /opt/ros/kinetic/share/
+
+ROS
+CHECKING IF ROS IS INSTALLED
+	Command: rosversion ros
+	OUTPUT: <version_no._is given>
+FILESYSYTEM CONCEPTS
+	1. Packages: Software organisation unit of ROS. 
+	2. Manifests: Description of a package. Holds info like version, maintainer, license etc.
+
+GETTING INFO ABOUT PACKAGES
+	Command: rospack find <package_name>
+	OUTPUT: YOUR_INSTALL_PATH/share/<package_name>
+
+TO FIND LOG FILES LOCATION
+	Commeand: roscd log
+	OUTPUT: 
+NOTE: OUTPUT: (if no ROS programs ran)
+	      No active roscore
+	      bash: cd: /home/arnesh/.ros/log: No such file or directory
+
+TO PRINT THE WORKING DIRECTORY
+	Command: pwd
+	OUTPUT: YOUR_INSTALL_PATH/share/roscpp
+
+CHANGE DIRECTORY TO A PACKAGE OR A STACK
+	Commmand: roscd <location_name</sub_dir>> (This brings the terminal to the desired package.)
+	Example: roscd roscpp/cmake
+	OUTPUT FOR pwd: YOU_INSTALL_PATH/share/roscpp/cmake
+
+LS DIRECTLY IN A PACKAGE
+	Command: rosls <location_name</sub_dir>>
+
+//====================================================================
+
+CREATING A ROS PACKAGE
+CATKIN PACKAGE
+For a package tobe a catkin one, it requires:
+	1. catkin compliant package.xml
+	2. CmakeLists.txt which uses catkin
+	3. Each package must have its own folder
+Working with catkin packages is recommended usingn a catkin workspace,
+Catkin Workspace:It is a folder where you modify, build, and install catkin packages. 
+
+CREATING A CATKIN WORKSPACE
+	Command:
+		mkdir ~p ~/catkin_ws/src
+		cd ~/catkin_ws
+		catkin_make  (creates a CmakesLists.txt link in 'src' folder)
+
+CREATING A CATKIN PACKAGE
+	Command: catkin_create_pkg <package_name> std_msgs rospy roscpp
+			 catkin_create_pkg <package_name> [depend 1] [depend 2]
+	This creates a <packge_name> folder which contains a package.xml
+	& CMakeLists.txt with partially filled out information given to catkin_create_pkg.
+
+ADDING THE WORKSPACE TO THE ROS ENVIRONMENT
+	Command: . <path>/catkin_ws/devel/setup.bash 
+
+//====================================================================
+
+DEPENDENCIES
+PACKAGE DEPENDENCIES
+	1st order dependencies: Dependencies declared when creating packages.
+	Command: rospack depends1 beginner_tutorials
+
+INDIRECT DEPENDENCIES
+Dependencies of dependencies
+
+TO RECURSIVELY DETERMINE ALL NESTED DEPENDENCIES
+	Command: rospack depends beginner_tutorials
+
+INSTALLING ALL DEPENDENCIES REQUIRED BY THE SRC PACKAGES
+	Command: ~/catkin_ws$ rosdep install --from-paths src --ignore-src -r -y
+NOTE: Always do this when you have installed a new package.
+
+//====================================================================
+
+PACKAGE.XML
+<description>[msg]</description>: {A short scentence covering the scope of the package}
+<exec_depend>[dependency]</exec_depend>: To make the dependency avaialable during build & run time.
+
+//====================================================================
+
+BUILDING A ROS PACKAGE
+BUILDING CATKIN PACKAGES
+	Command: catkin_make --source <directory_with_SC>(only if SC elsewhere)
+			 catkin_make install --source <directory_with_SC> #
+	The above commands will build any catkin projects found in the src folder. 
+NOTE: catkin_ws has 2 other folders than src
+	1. build: This is where cmake and make are called to configure and build the packages.
+	2. devel: This is where the executables & libraries go before you install your packages.
+BUILDING WHILE EXCLUDING A PACKAGE
+	Command: catkin_make -DCATKIN_BLACKLIST_PACKAGES="<package_name>"
+
+//====================================================================
+ROS NODES
+Node: An executable that uses ROS to communicate with other nodes.
+
+ROS CLIENT LIBRARIES
+Allow nodes written in different promgrammin languages to communicate
+
+RUNNING ROS
+	Command: roscore
+NOTE: If lack of permissions is given out as a error this inplies ~/.ros folder is owned by root,
+	Command: sudo chown -R <your_username> ~/.ros
+
+FINDING RUNNING NODES
+	Command: rosnode list
+	OUTPUT: /rosout /<node1> /<node2> ... and other running nodes
+NOTE: rosout always runs since it collects & logs nodes' debugging 		  output.
+
+FINDING STATUS OF RUNNING NODES
+	Command: rosnode info /<node>
+
+RUNNING A NODE DIRECTLY WITHIN A PACKAGE
+	Command: rosrun <package_name> <node_name>
+	Example: rosrun turtlesim turtlesim_node
+			 rosrun turtlesim turtle_teleop_key
+
+REASSIGNING NAMES TO A NODE
+	Command: rosrun <package_name> <node_name> __name:=<New_name> 
+	Example: rosrun turtlesim turtlesim_node __name:=my_turtle
+
+//====================================================================
+ROS TOPICS
+These are the channels over which 2 or more nodes communicate with each other
+
+ROS MESSAGES
+Communication on topics happens by sending ROS messages between nodes.
+
+FINDING THE NODES THAT SUBSCRIBE/PUBLISH FROM A TOPIC
+	Command: rostopic info <topic>
+
+SHOWING DATA PUBLISHED ON A TOPIC
+	Command: rostopic echo <topic>
+
+TO FIND LIST OF PUBLISHED & SUBSCRIBED TOPICS
+	Command: rostopic list -v
+
+RETURNING THE MESSAGE TYPE OF ANY TOPIC PUBLISHED
+	Command: rostopic type <topic>
+	Example: rostopic type /turtle1/cmd_vel 
+
+FINDING DETAILS OF A ROS MESSAGE
+	Command: rosmsg show <msg_name>
+	Example: rosmsg show geometry_msgs/Twist
+NOTE: For getting indepth info about a topic:
+		Command: rostopic type <topic> | rosmsg show
+
+PUBLISHING DATA ON A TOPIC CURRENTLY ADVERTISED
+	Command: rostopic pub <topic> <msg_type> <args>
+	Example: rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]' 
+NOTE: 1. -1 causes rostopic to only publish 1 message & then exit.
+	  2. -- tells the option parser that none of the following 		   arguments is an option. (required in case where arguments	   have a leading '-' {like -ve no.s}).
+	  3. The arguments in the current example are in the YAML syntax.
+
+PUBLISHING DATA ON A TOPIC AT A STEADY RATE OF 1HZ	
+	Command:rostopic pub <topic> <msg_type> -r 1 <--> <args>
+NOTE: 1. 1 here is the rate of command given (in Hz)
+	  2. -- is to be put only if arguments have a leading '-'. 
+
+FINDING THE RATE OF DATA PUBLISHING
+	Command: rostopic hz <topic>
+
+RQT_PLOT
+Displays a scrolling time plot of the data published on topics.
+	Command: rosrun rqt_plot rqt_plot
+
+//====================================================================
+ROS SERVICES
+They allow nodes to send a request & recieve a response.
+
+LISTING OUT THE SERVICES PROVIDED BY THE NODES
+	Command: rosservice list <node>(exclude node for all services)
+
+FINDING SERVICE TYPE
+	Command: rosservice type <service>
+	Example: rosservice type /clear
+		OUTPUT: std_srvs/Empty
+Note: 'Empty' type return => that the service doesn't take arguments.
+
+FINDING TYPE ALONG WITH SERVICE ARGUMENTS
+	Command: rosservice type /spawn | rossrv show 
+
+USING/CALLING A SERVICE
+	Command: rosservice call <service> <args>
+
+//====================================================================
+ROSPARAM
+Allows user to store and manipulate data on the ROS Parameter Server. 
+
+LISTING OUT NODE PARAMETERS
+	command: rosparam list
+
+SETTING VALUES OF PARAMETER VALUES
+	Command: rosparam set <parameter_name>
+	Example: rosparam set /background_r 150
+
+FINDING PARAMETER VALUES 
+	Command: rosparam get <parameter_name>
+NOTE: To get all the parameter values
+	Command: rosparam get /
+
+WRITING PARAMETERS TO PARAMS.YAML
+	Command: rosparam dump params.yaml
+
+LOADING YAML FILES INTO NEW NAMESPACES
+	Command: rosparam load params.yaml copy
+			 rosparam get /copy/background_b
+
+//====================================================================
+RQT_CONSOLE
+	Attaches to ROS's logging framework to display output from nodes.
+RQT_LOGGER_LEVEL
+	Allows to change verbosity level(DEBUG, WARN, INFO and ERROR) of nodes as they run
+
+//====================================================================
+ROS MSG & SRV
+
+MSG
+simple text files that describe the fields of a ROS message.Used to generate source code for messages in different languages. 
+
+SRV
+Describes a service. Composed of a request & a response.
+
+TO MAKE SURE THAT ROS CAN SEE MSG
+	Command: rosmsg show <message_name>
+	Example: rosmsg show beginner_tutorials/Num
+Note: You can also use 'rosmsg show <message_name>'
+	OUTPUT: [<package_name>/<message_name>]
+			<data_type> <data_name>
+
+COPYING A SRV FROM 1 PACKAGE TO ANOTHER
+	Command: roscp <package_name> <file_to_copy_path> <copy_path>
+	Example: roscp rospy_tutorials AddTwoInts.srv srv/AddTwoInts.srv
