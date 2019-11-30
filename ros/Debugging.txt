@@ -1,0 +1,6 @@
+Cmake Error 
+	DESCRIPTION: CMake Error at /usr/share/cmake-3.5/Modules/FindPkgConfig.cmake:367 (message):
+  	A required package was not found
+
+  	SOLUTION: rosdep install --from-paths src --ignore-src -r -y
+Given code installs all the dependencies required by the packages in src.

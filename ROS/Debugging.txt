@@ -24,9 +24,6 @@ Roscore Error
 Check if a new roscore is running now.
 (OPTIONAL)	$ killall -9 rosmaster 
 
-	DESCRIPTION: run_id on parameter server does not match declared run_id: cb4152e0-e323-11e9-aa64-b4b686d19426.
-
-
 TO EXCLUDE A GIVEN PACKAGE FROM CATKIN_MAKE
 	catkin_make -DCATKIN_BLACKLIST_PACKAGES="<package_name>"
 

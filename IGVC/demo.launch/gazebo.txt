@@ -1,0 +1,197 @@
+Node [/gazebo]
+Publications: 
+ * /base_pose_ground_truth [nav_msgs/Odometry]
+ * /clock [rosgraph_msgs/Clock]
+ * /gazebo/link_states [gazebo_msgs/LinkStates]
+ * /gazebo/model_states [gazebo_msgs/ModelStates]
+ * /gazebo/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /gazebo/parameter_updates [dynamic_reconfigure/Config]
+ * /joint_states [sensor_msgs/JointState]
+ * /prius/back_camera/image_raw [sensor_msgs/Image]
+ * /prius/back_camera/image_raw/compressed [sensor_msgs/CompressedImage]
+ * /prius/back_camera/image_raw/compressed/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/back_camera/image_raw/compressed/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/back_camera/image_raw/compressedDepth [sensor_msgs/CompressedImage]
+ * /prius/back_camera/image_raw/compressedDepth/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/back_camera/image_raw/compressedDepth/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/back_camera/image_raw/theora [theora_image_transport/Packet]
+ * /prius/back_camera/image_raw/theora/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/back_camera/image_raw/theora/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/back_camera/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/back_camera/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/back_camera_info [sensor_msgs/CameraInfo]
+ * /prius/back_sonar/left_far_range [sensor_msgs/Range]
+ * /prius/back_sonar/left_middle_range [sensor_msgs/Range]
+ * /prius/back_sonar/right_far_range [sensor_msgs/Range]
+ * /prius/back_sonar/right_middle_range [sensor_msgs/Range]
+ * /prius/center_laser/scan [sensor_msgs/PointCloud]
+ * /prius/front_camera/image_raw [sensor_msgs/Image]
+ * /prius/front_camera/image_raw/compressed [sensor_msgs/CompressedImage]
+ * /prius/front_camera/image_raw/compressed/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/front_camera/image_raw/compressed/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/front_camera/image_raw/compressedDepth [sensor_msgs/CompressedImage]
+ * /prius/front_camera/image_raw/compressedDepth/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/front_camera/image_raw/compressedDepth/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/front_camera/image_raw/theora [theora_image_transport/Packet]
+ * /prius/front_camera/image_raw/theora/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/front_camera/image_raw/theora/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/front_camera/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/front_camera/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/front_camera_info [sensor_msgs/CameraInfo]
+ * /prius/front_left_laser/scan [sensor_msgs/LaserScan]
+ * /prius/front_right_laser/scan [sensor_msgs/LaserScan]
+ * /prius/front_sonar/left_far_range [sensor_msgs/Range]
+ * /prius/front_sonar/left_middle_range [sensor_msgs/Range]
+ * /prius/front_sonar/right_far_range [sensor_msgs/Range]
+ * /prius/front_sonar/right_middle_range [sensor_msgs/Range]
+ * /prius/left_camera/image_raw [sensor_msgs/Image]
+ * /prius/left_camera/image_raw/compressed [sensor_msgs/CompressedImage]
+ * /prius/left_camera/image_raw/compressed/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/left_camera/image_raw/compressed/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/left_camera/image_raw/compressedDepth [sensor_msgs/CompressedImage]
+ * /prius/left_camera/image_raw/compressedDepth/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/left_camera/image_raw/compressedDepth/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/left_camera/image_raw/theora [theora_image_transport/Packet]
+ * /prius/left_camera/image_raw/theora/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/left_camera/image_raw/theora/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/left_camera/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/left_camera/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/left_camera_info [sensor_msgs/CameraInfo]
+ * /prius/main_laser/scan [sensor_msgs/LaserScan]
+ * /prius/right_camera/image_raw [sensor_msgs/Image]
+ * /prius/right_camera/image_raw/compressed [sensor_msgs/CompressedImage]
+ * /prius/right_camera/image_raw/compressed/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/right_camera/image_raw/compressed/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/right_camera/image_raw/compressedDepth [sensor_msgs/CompressedImage]
+ * /prius/right_camera/image_raw/compressedDepth/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/right_camera/image_raw/compressedDepth/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/right_camera/image_raw/theora [theora_image_transport/Packet]
+ * /prius/right_camera/image_raw/theora/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/right_camera/image_raw/theora/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/right_camera/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /prius/right_camera/parameter_updates [dynamic_reconfigure/Config]
+ * /prius/right_camera_info [sensor_msgs/CameraInfo]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /clock [rosgraph_msgs/Clock]
+ * /gazebo/set_link_state [unknown type]
+ * /gazebo/set_model_state [unknown type]
+ * /prius [unknown type]
+
+Services: 
+ * /gazebo/apply_body_wrench
+ * /gazebo/apply_joint_effort
+ * /gazebo/clear_body_wrenches
+ * /gazebo/clear_joint_forces
+ * /gazebo/delete_light
+ * /gazebo/delete_model
+ * /gazebo/get_joint_properties
+ * /gazebo/get_light_properties
+ * /gazebo/get_link_properties
+ * /gazebo/get_link_state
+ * /gazebo/get_loggers
+ * /gazebo/get_model_properties
+ * /gazebo/get_model_state
+ * /gazebo/get_physics_properties
+ * /gazebo/get_world_properties
+ * /gazebo/pause_physics
+ * /gazebo/reset_simulation
+ * /gazebo/reset_world
+ * /gazebo/set_joint_properties
+ * /gazebo/set_light_properties
+ * /gazebo/set_link_properties
+ * /gazebo/set_link_state
+ * /gazebo/set_logger_level
+ * /gazebo/set_model_configuration
+ * /gazebo/set_model_state
+ * /gazebo/set_parameters
+ * /gazebo/set_physics_properties
+ * /gazebo/spawn_sdf_model
+ * /gazebo/spawn_urdf_model
+ * /gazebo/unpause_physics
+ * /prius/back_camera/image_raw/compressed/set_parameters
+ * /prius/back_camera/image_raw/compressedDepth/set_parameters
+ * /prius/back_camera/image_raw/theora/set_parameters
+ * /prius/back_camera/set_camera_info
+ * /prius/back_camera/set_parameters
+ * /prius/front_camera/image_raw/compressed/set_parameters
+ * /prius/front_camera/image_raw/compressedDepth/set_parameters
+ * /prius/front_camera/image_raw/theora/set_parameters
+ * /prius/front_camera/set_camera_info
+ * /prius/front_camera/set_parameters
+ * /prius/left_camera/image_raw/compressed/set_parameters
+ * /prius/left_camera/image_raw/compressedDepth/set_parameters
+ * /prius/left_camera/image_raw/theora/set_parameters
+ * /prius/left_camera/set_camera_info
+ * /prius/left_camera/set_parameters
+ * /prius/right_camera/image_raw/compressed/set_parameters
+ * /prius/right_camera/image_raw/compressedDepth/set_parameters
+ * /prius/right_camera/image_raw/theora/set_parameters
+ * /prius/right_camera/set_camera_info
+ * /prius/right_camera/set_parameters
+
+
+contacting node http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/ ...
+Pid: 301
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /clock
+    * to: /fake_localization
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /robot_state_publisher
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /very_inaccurate_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo_gui
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /prius/center_laser/scan
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /prius/main_laser/scan
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /prius/main_laser/scan
+    * to: /move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /joint_states
+    * to: /robot_state_publisher
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /base_pose_ground_truth
+    * to: /rviz
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /base_pose_ground_truth
+    * to: /fake_localization
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /clock
+    * to: /gazebo (http://arnesh-HP-Pavilion-Laptop-15-cc1xx:45057/)
+    * direction: inbound
+    * transport: INTRAPROCESS

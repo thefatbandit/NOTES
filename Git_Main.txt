@@ -1,0 +1,90 @@
+COMMITTING
+git commit => for committing.
+
+
+BRANCHING
+git branch <branch_name>
+NOTE: But this just creates a branch. For any commits to be done on this branch. 
+	you need to inform git to checkout that branch(i.e. put focus on
+	that branch)
+git checkout <branch_name>
+SHORCUt=> for branching+checkout [git checkout -b <branch_name>]
+
+
+MERGING
+Creates a special commit that has 2 unique parents, i.e. includes all the work from the
+2 parents and set of all their parents.
+git merge <branch_to_be_merged>
+NOTE: The merging will be done with the commit git is currently checking out.
+
+
+REBASING
+Also a way of combining work between branches. It copies the parents and plops 
+them in the heirachy. That is instead of joining the branches, it creates a new commmit in
+the main linear chain.
+git rebase <branch_to_be_reabased>
+NOTE: Just like merge, this is also between currently checked out commit and the branch.
+
+
+TRAVERSAL
+HEAD: Currently checked out commit.
+
+REALTIVE REFS
+Move upwards by 1 commit=> git checkout <branch_whose_ancestor_is_to_be_found>^
+Move upwards by n commits=> git checkout <branch_whose_ancestor_is_to_be_found>~<n>
+NOTE: Same can be done with the current position too using HEAD(i.e. git checkout HEAD^)
+
+BRANCH FORCING
+To move branches around.
+git branch -f master HEAD~3 (this directly moves master branch to 3 parents 
+behind HEAD)
+NOTE: HEAD~3 can be replaced by any commit name too(for example c1,c2...)
+
+REVERSING CHANGES
+git reset HEAD~1 (move a branch backwards as if the curent commit wasn't ever made)
+NOTE: But for sharing reversing changes to remote branches we use revert
+git revert HEAD/<commit_name> (this introducing a new commit introducing changes 
+that reverses changes of the given commit)
+
+MOVING WORK
+git cherry-pick <commit1> <commit2> ...
+NOTE: The commits would be copied just below the HEAD.
+
+INTERACTIVE REBASING
+git rebase -i HEAD~4
+You can do 3 things here
+	1. Reordering of commits
+	2. pick (i.e. you choose to omit some commits)
+	3. squash (allows to combine commits)
+
+LOCALLY STACKED COMMITS
+git commit --amend (to make small changes to commits)
+
+GIT TAGS
+Used to PERMANENTLY mark certain commits as "milestones" that we can use for reference
+NOTE: git checkout DOESN'T work on tags.
+git tag <tag_name> <commit_name>
+
+FINDING POSITION RELATIVE TO THE NEAREST TAG
+git describe <ref> (ref here is anything that can be resolved into a commit.)
+NOTE: If there is no <ref> given, HEAD is chosen by default.
+OUTPUT: <tag>_<num_commits>_g<hash> 
+	<tag> => nearest tag name.
+	<num_commits> => how many commits the given commit is from the tag.
+	<hash> => hash(i.e. name) of the commit being described.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
